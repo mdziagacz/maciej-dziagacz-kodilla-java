@@ -20,14 +20,7 @@ public class TestingMain {
 
         Calculator calc = new Calculator();
 
-        if (calc.add(5,5) == 10){
-            System.out.println("calc test OK");
-        }
-        else{
-            System.out.println("calc error");
-        }
-
-        if (calc.subtract(5,5) == 0){
+        if (calc.add(5,5) == 10 && calc.subtract(5,5) == 0) {
             System.out.println("calc test OK");
         }
         else{
