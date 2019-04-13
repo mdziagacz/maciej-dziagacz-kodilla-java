@@ -21,17 +21,25 @@ public class CollectionTestSuite {
         //Given
         ArrayList<Integer> testList = new ArrayList<>();
         ArrayList<Integer> exterminatedList = new ArrayList<>();
+        List<Integer> expectedList = new ArrayList<>();
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        boolean test;
         testList.add(3);
         testList.add(6);
         testList.add(9);
         testList.add(2);
+        expectedList.add(6);
+        expectedList.add(2);
         //When
         exterminatedList = exterminator.exterminate(testList);
         //Then
-        for (int i = 0; i < exterminatedList.size(); i++){
-            Assert.assertTrue(exterminatedList.get(i) % 2 == 0);
+        if (exterminatedList.get(0) == expectedList.get(0) && exterminatedList.get(1) == expectedList.get(1)){
+            test = true;
         }
+        else{
+            test = false;
+        }
+        Assert.assertTrue(test);
     }
 
     @Test
