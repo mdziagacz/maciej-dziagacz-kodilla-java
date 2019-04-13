@@ -22,7 +22,6 @@ public class CollectionTestSuite {
         ArrayList<Integer> testList = new ArrayList<>();
         ArrayList<Integer> exterminatedList = new ArrayList<>();
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
-
         testList.add(3);
         testList.add(6);
         testList.add(9);
