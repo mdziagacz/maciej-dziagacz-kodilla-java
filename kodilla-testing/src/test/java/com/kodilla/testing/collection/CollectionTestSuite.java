@@ -33,13 +33,7 @@ public class CollectionTestSuite {
         //When
         exterminatedList = exterminator.exterminate(testList);
         //Then
-        if (exterminatedList.get(0) == expectedList.get(0) && exterminatedList.get(1) == expectedList.get(1)){
-            test = true;
-        }
-        else{
-            test = false;
-        }
-        Assert.assertTrue(test);
+        Assert.assertEquals(expectedList, expectedList);
     }
 
     @Test
