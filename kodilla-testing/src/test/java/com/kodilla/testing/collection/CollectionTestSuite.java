@@ -33,7 +33,7 @@ public class CollectionTestSuite {
         //When
         exterminatedList = exterminator.exterminate(testList);
         //Then
-        Assert.assertEquals(expectedList, expectedList);
+        Assert.assertEquals(expectedList, exterminatedList);
     }
 
     @Test
