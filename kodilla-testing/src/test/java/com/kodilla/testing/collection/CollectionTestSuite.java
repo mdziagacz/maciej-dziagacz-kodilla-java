@@ -5,11 +5,6 @@ import java.util.*;
 
 public class CollectionTestSuite {
 
-    //Given
-    ArrayList<Integer> testList = new ArrayList<>();
-    ArrayList<Integer> exterminatedList = new ArrayList<>();
-    OddNumbersExterminator exterminator = new OddNumbersExterminator();
-
     @After
     public void after(){
         System.out.println("test zakończony");
@@ -24,6 +19,10 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList(){
         System.out.println("na parzyste");
         //Given
+        ArrayList<Integer> testList = new ArrayList<>();
+        ArrayList<Integer> exterminatedList = new ArrayList<>();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+
         testList.add(3);
         testList.add(6);
         testList.add(9);
@@ -39,7 +38,10 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList(){
         System.out.println("na pustej liście");
-
+        //Given
+        ArrayList<Integer> testList = new ArrayList<>();
+        ArrayList<Integer> exterminatedList = new ArrayList<>();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
         //When
         exterminatedList = exterminator.exterminate(testList);
         //Then
