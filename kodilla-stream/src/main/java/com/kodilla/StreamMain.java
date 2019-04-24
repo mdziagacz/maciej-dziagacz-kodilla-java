@@ -26,7 +26,8 @@ public class StreamMain {
         System.out.println("text to decorate: lamdba is cool");
         System.out.println("decorated text:");
         String text = "lambda is cool";
-        poemBeautifier.beautify(text, textToDecorate -> "*" + textToDecorate);
-
+        poemBeautifier.beautify(text, textToDecorate -> textToDecorate.toUpperCase());
+        poemBeautifier.beautify(text, textToDecorate -> "\\* " + textToDecorate + " */ ");
+        poemBeautifier.beautify(text, textToDecorate -> "->" + textToDecorate + "<-");
     }
 }
