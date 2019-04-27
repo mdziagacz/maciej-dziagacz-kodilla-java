@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public final class World {
-    Set<Continent> world = new HashSet<>();
+    private Set<Continent> world = new HashSet<>();
 
     public void addContinent(Continent continent) {
         world.add(continent);
@@ -13,7 +13,7 @@ public final class World {
 
     public BigDecimal getPeopleQuantity() {
         return world.stream()
-                .flatMap(continent -> continent.continent.stream())
+                .flatMap(continent -> continent.getContinent().stream())
                 .map(country -> country.getPeopleQuantity())
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum.add(current));
     }
