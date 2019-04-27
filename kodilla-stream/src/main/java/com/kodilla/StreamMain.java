@@ -77,8 +77,5 @@ public class StreamMain {
         userMap.entrySet().stream()
                 .map(entry -> "ID: " + entry.getKey() + " user: " + entry.getValue())
                 .forEach(System.out::println);
-
-
-
     }
 }
