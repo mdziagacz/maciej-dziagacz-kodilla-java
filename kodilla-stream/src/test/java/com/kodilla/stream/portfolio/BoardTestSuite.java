@@ -151,11 +151,10 @@ public class BoardTestSuite {
         OptionalDouble average = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .mapToLong(d -> d.getCreated().until(d.getDeadline(), ChronoUnit.DAYS))
+                .mapToLong(d -> d.getCreated().until(LocalDate.now(), ChronoUnit.DAYS))
                 .average();
 
         //Then
-        double averageExpected = (5.0 + 35.0 + 15.0) / 3.0;
-        Assert.assertEquals(averageExpected, average.getAsDouble(), 0);
+        Assert.assertEquals(10, average.orElse(0),0);
     }
 }
