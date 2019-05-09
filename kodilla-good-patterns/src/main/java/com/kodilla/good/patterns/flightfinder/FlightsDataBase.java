@@ -13,8 +13,12 @@ public class FlightsDataBase {
         flightsDataBase.add(new Flight("KATOWICE", "GDANSK"));
         flightsDataBase.add(new Flight("WARSZAWA", "MADRYT"));
         flightsDataBase.add(new Flight("MADRYT", "WARSZAWA"));
-        flightsDataBase.add(new Flight("GDANSK", "WROCLAW"));
+        flightsDataBase.add(new Flight("BERLIN", "WROCLAW"));
+        flightsDataBase.add(new Flight("WARSZAWA", "MADRYT"));
         flightsDataBase.add(new Flight("GDANSK", "PARYZ"));
+        flightsDataBase.add(new Flight("WARSZAWA", "WROCLAW"));
+        flightsDataBase.add(new Flight("WROCLAW", "PARYZ"));
+
         return new HashSet<>(flightsDataBase);
     }
 }
