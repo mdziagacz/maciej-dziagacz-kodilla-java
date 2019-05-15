@@ -1,12 +1,22 @@
 package com.kodilla.spring.portfolio;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
+import javax.annotation.Resource;
 
 @Configuration
 public class BoardConfig {
+    @Resource(name = "toDo")
+    private TaskList toDoList;
+    @Resource(name = "inProgress")
+    private TaskList inProgressList;
+    @Resource(name = "done")
+    private TaskList doneList;
+
+    @Bean
+    public Board createBoard() {
+        return new Board(toDoList, inProgressList, doneList);
+    }
 
     @Bean(name = "toDo")
     @Scope("prototype")
