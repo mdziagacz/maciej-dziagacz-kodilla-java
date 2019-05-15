@@ -1,31 +1,28 @@
 package com.kodilla.spring.portfolio;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 
 @Configuration
 public class BoardConfig {
 
-    @Autowired
-    private Board board;
-
-    @Bean
+    @Bean(name = "toDo")
+    @Scope("prototype")
     public TaskList toDoList() {
-        board.setToDoList(new TaskList());
-        return board.getToDoList();
+        return new TaskList();
     }
 
-    @Bean
+    @Bean(name = "done")
+    @Scope("prototype")
     public TaskList doneList() {
-        board.setDoneList(new TaskList());
-        return board.getToDoList();
+        return new TaskList();
     }
 
-    @Bean
-    public TaskList InProgressList() {
-        board.setInProgressList(new TaskList());
-        return board.getToDoList();
+    @Bean(name = "inProgress")
+    @Scope("prototype")
+    public TaskList inProgressList() {
+        return new TaskList();
     }
 }

@@ -18,9 +18,9 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
 
         //When
-        board.getToDoList().tasks.add("toDo1");
-        board.getDoneList().tasks.add(("done1"));
-        board.getInProgressList().tasks.add("inProgress1");
+        board.addTaskToDo("to do");
+        board.addTaskInProgress("in progress");
+        board.addTaskDone("done");
 
         //Then
         board.getToDoList().tasks.stream()

@@ -1,23 +1,21 @@
 package com.kodilla.spring.portfolio;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class Board {
-    private TaskList toDoList;
-    private TaskList inProgressList;
-    private TaskList doneList;
+    private final TaskList toDoList;
+    private final TaskList inProgressList;
+    private final TaskList doneList;
 
-    public void setToDoList(TaskList toDoList) {
+    @Autowired
+    public Board(@Qualifier("toDo") TaskList toDoList,
+                 @Qualifier("inProgress") TaskList inProgressList,
+                 @Qualifier("done") TaskList doneList) {
         this.toDoList = toDoList;
-    }
-
-    public void setInProgressList(TaskList inProgressList) {
         this.inProgressList = inProgressList;
-    }
-
-    public void setDoneList(TaskList doneList) {
         this.doneList = doneList;
     }
 
@@ -31,5 +29,17 @@ public class Board {
 
     public TaskList getDoneList() {
         return doneList;
+    }
+
+    public void addTaskToDo(String task) {
+        toDoList.tasks.add(task);
+    }
+
+    public void addTaskInProgress(String task) {
+        inProgressList.tasks.add(task);
+    }
+
+    public void addTaskDone(String task) {
+        doneList.tasks.add(task);
     }
 }
