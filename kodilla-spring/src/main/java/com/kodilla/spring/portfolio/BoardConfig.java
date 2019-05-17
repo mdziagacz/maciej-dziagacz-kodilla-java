@@ -1,16 +1,19 @@
 package com.kodilla.spring.portfolio;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
-
-import javax.annotation.Resource;
 
 @Configuration
 public class BoardConfig {
-    @Resource(name = "toDo")
+    @Autowired
+    @Qualifier("toDo")
     private TaskList toDoList;
-    @Resource(name = "inProgress")
+    @Autowired
+    @Qualifier("inProgress")
     private TaskList inProgressList;
-    @Resource(name = "done")
+    @Autowired
+    @Qualifier("done")
     private TaskList doneList;
 
     @Bean
