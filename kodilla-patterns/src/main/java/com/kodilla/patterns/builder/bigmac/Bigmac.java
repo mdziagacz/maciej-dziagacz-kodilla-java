@@ -22,6 +22,26 @@ public class Bigmac {
         private String sauce;
         private List<String> ingredients = new ArrayList<>();
 
+        private List<String> stockSauces() {
+            List<String> stockSauces = new ArrayList<>();
+            stockSauces.add("standard");
+            stockSauces.add("thousands island");
+            stockSauces.add("barbecue");
+            return stockSauces;
+        }
+
+        private List<String> stockIngredients() {
+            List<String> stockIngredients = new ArrayList<>();
+            stockIngredients.add("onion");
+            stockIngredients.add("beacon");
+            stockIngredients.add("cucumber");
+            stockIngredients.add("chili");
+            stockIngredients.add("mushrooms");
+            stockIngredients.add("shrimp");
+            stockIngredients.add("cheese");
+            return stockIngredients;
+        }
+
         public BigmacBuilder bun(String bun) {
             this.bun = bun;
             return this;
@@ -33,9 +53,7 @@ public class Bigmac {
         }
 
         public BigmacBuilder sauce(String sauce) {
-            if (sauce.equals("standard") ||
-                    sauce.equals("thousands islands") ||
-                    sauce.equals("barbecue")) {
+            if (stockSauces().contains(sauce)) {
                 this.sauce = sauce;
                 return this;
             } else {
@@ -44,14 +62,7 @@ public class Bigmac {
         }
 
         public BigmacBuilder ingredients(String ingredients) {
-            if (ingredients.equals("lettuce") ||
-                    ingredients.equals("onion") ||
-                    ingredients.equals("beacon") ||
-                    ingredients.equals("cucumber") ||
-                    ingredients.equals("chili") ||
-                    ingredients.equals("mushrooms") ||
-                    ingredients.equals("shrimp") ||
-                    ingredients.equals("cheese")) {
+            if (stockIngredients().contains(ingredients)) {
                 this.ingredients.add(ingredients);
                 return this;
             } else {
