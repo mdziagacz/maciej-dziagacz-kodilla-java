@@ -30,7 +30,7 @@ public class DbManagerTestSuite {
 
         //Then
         int counter = 0;
-        while(rs.next()) {
+        while (rs.next()) {
             System.out.println(rs.getInt("ID") + ", " +
                     rs.getString("FIRSTNAME") + ", " +
                     rs.getString("LASTNAME"));
@@ -41,4 +41,37 @@ public class DbManagerTestSuite {
         Assert.assertEquals(5, counter);
     }
 
+    @Test
+    public void testSelectUsersAndPosts() throws SQLException {
+        //Given
+        DbManager dbManager = DbManager.getInstance();
+
+        //When
+        String query = "SELECT U.LASTNAME, U.FIRSTNAME, COUNT(*) AS POSTS_NUMBER\n" +
+                "FROM USERS U\n" +
+                "JOIN POSTS P ON P.USER_ID = U.ID\n" +
+                "GROUP BY U.ID\n" +
+                "HAVING COUNT(*) > 1;";
+        Statement statement = dbManager.getConnection().createStatement();
+        ResultSet rs = statement.executeQuery(query);
+
+        //When
+        int counter = 0;
+        System.out.println("Users with more than 1 posts:");
+        while (rs.next()) {
+            System.out.println(rs.getString("FIRSTNAME") + " " +
+                    rs.getString("LASTNAME") + " : " +
+                    rs.getInt("POSTS_NUMBER"));
+            counter++;
+        }
+        statement.close();
+        rs.close();
+
+        Assert.assertEquals(2, counter);
+    }
 }
+
+
+
+
+
