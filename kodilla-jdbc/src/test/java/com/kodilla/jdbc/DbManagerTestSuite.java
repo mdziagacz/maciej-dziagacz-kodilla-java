@@ -70,8 +70,3 @@ public class DbManagerTestSuite {
         Assert.assertEquals(2, counter);
     }
 }
-
-
-
-
-
