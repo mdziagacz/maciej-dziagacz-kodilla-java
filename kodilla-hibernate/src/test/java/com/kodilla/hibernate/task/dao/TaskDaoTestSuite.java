@@ -51,6 +51,6 @@ public class TaskDaoTestSuite {
         Assert.assertEquals(duration, readTask.get(0).getDuration());
 
         //CleanUp
-        taskDao.deleteAll();
+        taskDao.deleteById(task.getId());
     }
 }

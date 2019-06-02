@@ -30,6 +30,6 @@ public class TaskListDaoTestSuite {
         Assert.assertEquals("task1", readTaskList.get(0).getListName());
 
         //CleanUp
-        taskListDao.deleteAll();
+        taskListDao.deleteById(taskList.getId());
     }
 }
