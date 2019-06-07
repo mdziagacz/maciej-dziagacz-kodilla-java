@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Company.findCompanyBy3FirstLetters",
+        query = "from Company where substring(name, 1, 3) = :name"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
