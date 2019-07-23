@@ -10,6 +10,11 @@ import java.util.List;
         query = "from Company where substring(name, 1, 3) = :name"
 )
 
+@NamedQuery(
+        name = "Company.findByNamePart",
+        query = "from Company where name LIKE CONCAT('%',:namePart,'%')"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
